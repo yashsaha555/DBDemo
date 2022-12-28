@@ -5,11 +5,11 @@ birth_date timestamp,
 primary key(id));
 
 INSERT INTO PERSON
-(ID,NAME,LOCATION,BIRTH_DATE)
-VALUES(10001,'Sourav','Kolkata',current_date());
+(ID,NAME,LOCATION,birth_date)
+VALUES(10001,'Sourav','Kolkata',CURRENT_DATE());
 INSERT INTO PERSON
-(ID,NAME,LOCATION,BIRTH_DATE)
-VALUES(10002,'Yash','Siliguri',current_date());
+(ID,NAME,LOCATION,birth_date)
+VALUES(10002,'Yash','Siliguri',CURRENT_DATE());
 INSERT INTO PERSON
-(ID,NAME,LOCATION,BIRTH_DATE)
-VALUES(10003,'Jash','New Town',current_date());
+(ID,NAME,LOCATION,birth_date)
+VALUES(10003,'Jash','New Town',CURRENT_DATE());
