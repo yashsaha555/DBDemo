@@ -1,6 +1,7 @@
 package com.sourav.database.databasedemo.jdbc;
 
 import com.sourav.database.databasedemo.entity.Person;
+import com.sourav.database.databasedemo.entity.PersonRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -17,7 +18,7 @@ public class PersonJdbcDao {
 
     //select * from person
     public List<Person> findAll() {
-        return jdbcTemplate.query("SELECT * from Person", new BeanPropertyRowMapper<Person>(Person.class));
+        return jdbcTemplate.query("SELECT * from Person", new PersonRowMapper());
     }
 
     public Person findById(int id) {
@@ -40,8 +41,9 @@ public class PersonJdbcDao {
     }
 
     public int insert(Person person) {
-        return jdbcTemplate.update("insert into person (id,name,location,birth_date) values (?,?,?,?)", new Object[]{person.getId(), person.getName(), person.getLocation(),
-                new Timestamp(person.getBirthDate().getTime())});
+        return jdbcTemplate.update("insert into person (id,name,location,birth_date) values (?,?,?,?)",
+                new Object[]{person.getId(), person.getName(), person.getLocation(),
+                        new Timestamp(person.getBirthDate().getTime())});
     }
 
     public int update(Person person) {
