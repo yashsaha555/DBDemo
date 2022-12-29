@@ -5,6 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "Person")
+@NamedQuery(name = "findAll", query = "select p from Person p")
 public class Person {
     @Id
     @GeneratedValue
