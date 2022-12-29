@@ -18,4 +18,18 @@ public class PersonJpaRepository {
         return entityManager.find(Person.class, id);
     }
 
+    //merge should be used incase of update and insert, it will behave the same
+    public Person update(Person person) {
+        return entityManager.merge(person);
+    }
+
+    public Person insert(Person person) {
+        return entityManager.merge(person);
+    }
+
+    public void deleteById(int id) {
+        Person person = findById(id);
+        entityManager.remove(person);
+    }
+
 }
